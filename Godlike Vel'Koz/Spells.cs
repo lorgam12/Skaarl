@@ -106,28 +106,19 @@ namespace Godlike_Vel_Koz
         }
 
         // Cast Methods
-        public static bool canCastQ = true, canCastR = true;
         public static void CastQ(Obj_AI_Base target)
         {
             if (target == null) return;
             Q.MinimumHitChance = GetHitChance("Q");
-            if (Q.IsReady() && canCastQ)
-            {
+            if (Q.IsReady())
                 Q.Cast(target);
-                canCastQ = false;
-                Core.DelayAction(() => canCastQ = false, 1000);
-            }
         }
         public static void CastSharpQ(SharpDX.Vector3 target)
         {
             if (target == null) return;
             Q.MinimumHitChance = GetHitChance("Q");
-            if (Q.IsReady() && canCastQ)
-            {
+            if (Q.IsReady())
                 Q.Cast(target);
-                canCastQ = false;
-                Core.DelayAction(() => canCastQ = false, 1000);
-            }
         }
         public static void CastW(Obj_AI_Base target)
         {
@@ -161,25 +152,15 @@ namespace Godlike_Vel_Koz
         {
             if (target == null) return;
             R.MinimumHitChance = GetHitChance("Q");
-            if (R.IsReady() && canCastR)
-                if (Q.IsReady() && canCastQ)
-                {
-                    R.Cast(target);
-                    canCastR = false;
-                    Core.DelayAction(() => canCastR = false, 5000);
-                }
+            if (R.IsReady())
+                R.Cast(target);
         }
         public static void CastSharpR(SharpDX.Vector3 target)
         {
             if (target == null) return;
             R.MinimumHitChance = GetHitChance("R");
-            if (R.IsReady() && canCastR)
-                if (Q.IsReady() && canCastQ)
-                {
-                    R.Cast(target);
-                    canCastR = false;
-                    Core.DelayAction(() => canCastR = false, 5000);
-                }
+            if (R.IsReady())
+                R.Cast(target);
         }
         public static void OnCreate(GameObject sender, EventArgs args)
         {
