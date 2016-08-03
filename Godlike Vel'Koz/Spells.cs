@@ -5,6 +5,8 @@ using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
 using SharpDX;
+using EloBuddy.SDK.Menu;
+using EloBuddy.SDK.Menu.Values;
 
 namespace Godlike_Vel_Koz
 {
@@ -37,27 +39,51 @@ namespace Godlike_Vel_Koz
         {
             Q = new Spell.Skillshot(SpellSlot.Q, 1050, SkillShotType.Linear, 250, 1300, 50)
             {
-                MinimumHitChance = HitChance.High,
+                MinimumHitChance = GetHitChance("Q"),
                 AllowedCollisionCount = 0
             };
             W = new Spell.Skillshot(SpellSlot.W, 1050, SkillShotType.Linear, 250, 1700, 80)
             {
-                MinimumHitChance = HitChance.High,
+                MinimumHitChance = GetHitChance("W"),
                 AllowedCollisionCount = int.MaxValue
             };
             E = new Spell.Skillshot(SpellSlot.E, 850, SkillShotType.Circular, 500, 1500, 120)
             {
-                MinimumHitChance = HitChance.High,
+                MinimumHitChance = GetHitChance("E"),
                 AllowedCollisionCount = int.MaxValue
             };
             R = new Spell.Skillshot(SpellSlot.R, 1550, SkillShotType.Linear, 250, 0, 60)
             {
                 
-                MinimumHitChance = HitChance.High,
+                MinimumHitChance = GetHitChance("R"),
                 AllowedCollisionCount = int.MaxValue
             };
         }
 
+        public static HitChance GetHitChance(string skill)
+        {
+            int hitchanceValue;
+
+            if (skill == "Q")
+                hitchanceValue = Manager.hitchanceQ;
+            else if (skill == "W")
+                hitchanceValue = Manager.hitchanceW;
+            else if (skill == "E")
+                hitchanceValue = Manager.hitchanceE;
+            else if (skill == "R")
+                hitchanceValue = Manager.hitchanceR;
+            else
+                hitchanceValue = 0;
+
+            if (hitchanceValue == 0)
+                return HitChance.High;
+            else if (hitchanceValue == 1)
+                return HitChance.Medium;
+            else if (hitchanceValue == 2)
+                return HitChance.Low;
+            else
+                return HitChance.High;
+        }
         // Champion Specified Abilities
         public static float QDamage()
         {

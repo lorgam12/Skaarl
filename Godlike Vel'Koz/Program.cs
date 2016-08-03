@@ -61,50 +61,6 @@ namespace Godlike_Vel_Koz
                     playerKills++;
                 }
             }
-            UpdateHitChances();
-        }
-
-        public static void UpdateHitChances()
-        {
-            HitChance newHitchanceQ = HitChance.High;
-            if (Manager.hitchanceQ == 0)
-                newHitchanceQ = HitChance.High;
-            else if (Manager.hitchanceQ == 1)
-                newHitchanceQ = HitChance.Medium;
-            else if (Manager.hitchanceQ == 2)
-                newHitchanceQ = HitChance.Low;
-
-            Spells.Q.MinimumHitChance = newHitchanceQ;
-
-            HitChance newHitchanceW = HitChance.High;
-            if (Manager.hitchanceW == 0)
-                newHitchanceW = HitChance.High;
-            else if (Manager.hitchanceW == 1)
-                newHitchanceW = HitChance.Medium;
-            else if (Manager.hitchanceW == 2)
-                newHitchanceW = HitChance.Low;
-
-            Spells.W.MinimumHitChance = newHitchanceW;
-
-            HitChance newHitchanceE = HitChance.High;
-            if (Manager.hitchanceE== 0)
-                newHitchanceE = HitChance.High;
-            else if (Manager.hitchanceE == 1)
-                newHitchanceE = HitChance.Medium;
-            else if (Manager.hitchanceE == 2)
-                newHitchanceE = HitChance.Low;
-
-            Spells.E.MinimumHitChance = newHitchanceE;
-
-            HitChance newHitchanceR = HitChance.High;
-            if (Manager.hitchanceR == 0)
-                newHitchanceR = HitChance.High;
-            else if (Manager.hitchanceR == 1)
-                newHitchanceR = HitChance.Medium;
-            else if (Manager.hitchanceR == 2)
-                newHitchanceR = HitChance.Low;
-
-            Spells.R.MinimumHitChance = newHitchanceR;
         }
 
         public static void Drawing_OnDraw(EventArgs args)
