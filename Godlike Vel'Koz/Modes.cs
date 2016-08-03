@@ -103,7 +103,7 @@ namespace Godlike_Vel_Koz
                 var target = EntityManager.MinionsAndMonsters.GetLineFarmLocation(EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.Position, skillRange), 150, (int)skillRange);
                 if (target.HitNumber >= minMinions)
                 {
-                    Spells.W.Cast(target.CastPosition);
+                    Spells.CastSharpW(target.CastPosition);
                 }
             }
             else if (spell == "E")
@@ -119,7 +119,7 @@ namespace Godlike_Vel_Koz
                     var predictedMinion = farmLocation.GetCollisionObjects<Obj_AI_Minion>();
                     if (predictedMinion.Length >= minMinions)
                     {
-                        Spells.E.Cast(farmLocation.CastPosition);
+                        Spells.CastSharpE(farmLocation.CastPosition);
                     }
                 }
             }
@@ -155,7 +155,7 @@ namespace Godlike_Vel_Koz
                 var target = EntityManager.MinionsAndMonsters.GetLineFarmLocation(EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, skillRange), 150, (int)skillRange);
                 if (target.HitNumber >= minMinions)
                 {
-                    Spells.W.Cast(target.CastPosition);
+                    Spells.CastSharpW(target.CastPosition);
                 }
             }
             else if (spell == "E")
@@ -171,7 +171,7 @@ namespace Godlike_Vel_Koz
                     var predictedMinion = farmLocation.GetCollisionObjects<Obj_AI_Minion>();
                     if (predictedMinion.Length >= minMinions)
                     {
-                        Spells.E.Cast(farmLocation.CastPosition);
+                        Spells.CastSharpE(farmLocation.CastPosition);
                     }
                 }
             }

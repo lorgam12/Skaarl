@@ -19,6 +19,7 @@ namespace Godlike_Vel_Koz
             KVMain.Add("hitchanceW", new ComboBox("W Hitchance", 0, "High", "Medium", "Low"));
             KVMain.Add("hitchanceE", new ComboBox("E Hitchance", 0, "High", "Medium", "Low"));
             KVMain.Add("hitchanceR", new ComboBox("R Hitchance", 0, "High", "Medium", "Low"));
+            KVMain.AddLabel("Press F5 after changing hitchance values.");
 
             // Combo menu.
             KVCombo = KVMain.AddSubMenu("Combo", "KVCombo");

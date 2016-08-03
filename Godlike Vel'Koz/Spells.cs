@@ -84,7 +84,6 @@ namespace Godlike_Vel_Koz
             else
                 return HitChance.High;
         }
-
         // Champion Specified Abilities
         public static float QDamage()
         {
@@ -110,73 +109,59 @@ namespace Godlike_Vel_Koz
         public static void CastQ(Obj_AI_Base target)
         {
             if (target == null) return;
-
-            HitChance newHitchance = HitChance.High;
-            if (Manager.hitchanceQ == 0)
-                newHitchance = HitChance.High;
-            else if (Manager.hitchanceQ == 1)
-                newHitchance = HitChance.Medium;
-            else if (Manager.hitchanceQ == 2)
-                newHitchance = HitChance.Low;
-
-            Q.MinimumHitChance = newHitchance;
+            Q.MinimumHitChance = GetHitChance("Q");
             if (Q.IsReady() && Q.Name == "VelkozQ")
                 Q.Cast(target);
         }
-
+        public static void CastSharpQ(SharpDX.Vector3 target)
+        {
+            if (target == null) return;
+            Q.MinimumHitChance = GetHitChance("Q");
+            if (Q.IsReady() && Q.Name == "VelkozQ")
+                Q.Cast(target);
+        }
         public static void CastW(Obj_AI_Base target)
         {
             if (target == null) return;
-
-            HitChance newHitchance = HitChance.High;
-            if (Manager.hitchanceW == 0)
-                newHitchance = HitChance.High;
-            else if (Manager.hitchanceW == 1)
-                newHitchance = HitChance.Medium;
-            else if (Manager.hitchanceW == 2)
-                newHitchance = HitChance.Low;
-
-            W.MinimumHitChance = newHitchance;
-
+            W.MinimumHitChance = GetHitChance("Q");
             if (W.IsReady())
                 W.Cast(target);
         }
-
+        public static void CastSharpW(SharpDX.Vector3 target)
+        {
+            if (target == null) return;
+            W.MinimumHitChance = GetHitChance("W");
+            if (W.IsReady())
+                W.Cast(target);
+        }
         public static void CastE(Obj_AI_Base target)
         {
             if (target == null) return;
-
-            HitChance newHitchance = HitChance.High;
-            if (Manager.hitchanceE == 0)
-                newHitchance = HitChance.High;
-            else if (Manager.hitchanceE == 1)
-                newHitchance = HitChance.Medium;
-            else if (Manager.hitchanceE == 2)
-                newHitchance = HitChance.Low;
-
-            E.MinimumHitChance = newHitchance;
-
+            E.MinimumHitChance = GetHitChance("Q");
             if (E.IsReady())
                 E.Cast(target);
         }
-
+        public static void CastSharpE(SharpDX.Vector3 target)
+        {
+            if (target == null) return;
+            E.MinimumHitChance = GetHitChance("E");
+            if (E.IsReady())
+                E.Cast(target);
+        }
         public static void CastR(Obj_AI_Base target)
         {
             if (target == null) return;
-
-            HitChance newHitchance = HitChance.High;
-            if (Manager.hitchanceR == 0)
-                newHitchance = HitChance.High;
-            else if (Manager.hitchanceR == 1)
-                newHitchance = HitChance.Medium;
-            else if (Manager.hitchanceR == 2)
-                newHitchance = HitChance.Low;
-
-            R.MinimumHitChance = newHitchance;
+            R.MinimumHitChance = GetHitChance("Q");
             if (R.IsReady())
                 R.Cast(target);
         }
-
+        public static void CastSharpR(SharpDX.Vector3 target)
+        {
+            if (target == null) return;
+            R.MinimumHitChance = GetHitChance("R");
+            if (R.IsReady())
+                R.Cast(target);
+        }
         public static void OnCreate(GameObject sender, EventArgs args)
         {
             // Check if the sender is a MissleClient
