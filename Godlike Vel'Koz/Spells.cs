@@ -109,7 +109,6 @@ namespace Godlike_Vel_Koz
         // Cast Methods
         public static void CastQ(Obj_AI_Base target)
         {
-            Console.WriteLine(Q.MinimumHitChance);
             if (target == null) return;
 
             HitChance newHitchance = HitChance.High;
