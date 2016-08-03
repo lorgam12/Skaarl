@@ -84,6 +84,7 @@ namespace Godlike_Vel_Koz
             else
                 return HitChance.High;
         }
+
         // Champion Specified Abilities
         public static float QDamage()
         {
@@ -108,6 +109,7 @@ namespace Godlike_Vel_Koz
         // Cast Methods
         public static void CastQ(Obj_AI_Base target)
         {
+            Console.WriteLine(Q.MinimumHitChance);
             if (target == null) return;
 
             HitChance newHitchance = HitChance.High;
