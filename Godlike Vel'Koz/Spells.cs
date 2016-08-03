@@ -123,7 +123,7 @@ namespace Godlike_Vel_Koz
         public static void CastW(Obj_AI_Base target)
         {
             if (target == null) return;
-            W.MinimumHitChance = GetHitChance("Q");
+            W.MinimumHitChance = GetHitChance("W");
             if (W.IsReady())
                 W.Cast(target);
         }
@@ -152,7 +152,7 @@ namespace Godlike_Vel_Koz
         public static void CastR(Obj_AI_Base target)
         {
             if (target == null) return;
-            R.MinimumHitChance = GetHitChance("Q");
+            R.MinimumHitChance = GetHitChance("R");
             if (R.IsReady() && !castingR)
                 R.Cast(target); castingR = true; Core.DelayAction(() => castingR = false, 2500);
         }
