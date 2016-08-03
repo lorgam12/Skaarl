@@ -148,19 +148,20 @@ namespace Godlike_Vel_Koz
             if (E.IsReady())
                 E.Cast(target);
         }
+        public static bool castingR = false;
         public static void CastR(Obj_AI_Base target)
         {
             if (target == null) return;
             R.MinimumHitChance = GetHitChance("Q");
-            if (R.IsReady())
-                R.Cast(target);
+            if (R.IsReady() && !castingR)
+                R.Cast(target); castingR = true; Core.DelayAction(() => castingR = false, 2500);
         }
         public static void CastSharpR(SharpDX.Vector3 target)
         {
             if (target == null) return;
             R.MinimumHitChance = GetHitChance("R");
-            if (R.IsReady())
-                R.Cast(target);
+            if (R.IsReady() && !castingR)
+                R.Cast(target); castingR = true; Core.DelayAction(() => castingR = false, 2500);
         }
         public static void OnCreate(GameObject sender, EventArgs args)
         {
