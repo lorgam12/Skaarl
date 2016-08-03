@@ -54,7 +54,7 @@ namespace Godlike_Vel_Koz
             KVLaneClear.AddGroupLabel("Lane Clear");
             //KVLaneClear.AddLabel("LANE CLEAR DOESEN'T WORKS!");
             KVLaneClear.AddLabel("Skills");
-            KVLaneClear.Add("laneclearQ", new CheckBox("Use Q (Buggy)"), false);
+            KVLaneClear.Add("laneclearQ", new CheckBox("Use Q (Buggy)", false));
             KVLaneClear.Add("laneclearW", new CheckBox("Use W"));
             KVLaneClear.Add("laneclearE", new CheckBox("Use E"));
             KVLaneClear.AddSeparator(1);
