@@ -27,7 +27,7 @@ namespace Godlike_Vel_Koz
             KVCombo.Add("combolimitW", new CheckBox("Use W only if enemy is knocked.", false));
             KVCombo.Add("combolimitE", new CheckBox("Use E only if enemy is slowed.", false));
             KVCombo.Add("combolimitR", new CheckBox("Use R only if other spells are on cooldown.", false));
-            KVCombo.Add("combolimitR1", new Slider("Minimum enemy to use R", 2, 1, 5));
+            KVCombo.Add("combolimitR1", new Slider("Minimum enemy to use R", 3, 1, 5));
 
             // Harras menu.
             KVHarras = KVMain.AddSubMenu("Harras", "KVHarras");
@@ -112,7 +112,7 @@ namespace Godlike_Vel_Koz
             KVMisc.Add("gapEnable", new CheckBox("Enable Gap Closer with E"));
             KVMisc.AddSeparator(1);
             KVMisc.AddLabel("OH DARN");
-            KVMisc.Add("ohdarnEnable", new CheckBox("Enable OH DARN sound on kill"));
+            KVMisc.Add("ohdarnEnable", new CheckBox("Enable OH DARN sound on kill", false));
         }
 
         // Combo menu.
