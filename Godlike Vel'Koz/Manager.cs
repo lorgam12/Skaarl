@@ -12,7 +12,13 @@ namespace Godlike_Vel_Koz
             // Main menu.
             KVMain = MainMenu.AddMenu("Kled's Vel'Koz", "KVMain");
             KVMain.AddGroupLabel("Kled's Vel'Koz");
-            KVMain.AddLabel("Please report any bug you see at the forum!");
+            KVMain.AddLabel("If you see a bug don't forget to report it!");
+            KVMain.AddSeparator(1);
+            KVMain.AddGroupLabel("Hit Chances");
+            KVMain.Add("hitchanceQ", new ComboBox("Q Hitchance", 1, "High", "Medium", "Low"));
+            KVMain.Add("hitchanceW", new ComboBox("W Hitchance", 0, "High", "Medium", "Low"));
+            KVMain.Add("hitchanceE", new ComboBox("E Hitchance", 0, "High", "Medium", "Low"));
+            KVMain.Add("hitchanceR", new ComboBox("R Hitchance", 0, "High", "Medium", "Low"));
 
             // Combo menu.
             KVCombo = KVMain.AddSubMenu("Combo", "KVCombo");
@@ -52,9 +58,8 @@ namespace Godlike_Vel_Koz
             // Lane Clear menu.
             KVLaneClear = KVMain.AddSubMenu("Lane Clear", "KVLaneClear");
             KVLaneClear.AddGroupLabel("Lane Clear");
-            //KVLaneClear.AddLabel("LANE CLEAR DOESEN'T WORKS!");
             KVLaneClear.AddLabel("Skills");
-            KVLaneClear.Add("laneclearQ", new CheckBox("Use Q (Buggy)", false));
+            KVLaneClear.Add("laneclearQ", new CheckBox("Use Q"));
             KVLaneClear.Add("laneclearW", new CheckBox("Use W"));
             KVLaneClear.Add("laneclearE", new CheckBox("Use E"));
             KVLaneClear.AddSeparator(1);
@@ -66,7 +71,6 @@ namespace Godlike_Vel_Koz
             // Jungle Clear menu.
             KVJungleClear = KVMain.AddSubMenu("Jungle Clear", "KVJungleClear");
             KVJungleClear.AddGroupLabel("Jungle Clear");
-            //KVJungleClear.AddLabel("JUNGLE CLEAR DOESEN'T WORKS!");
             KVJungleClear.AddLabel("Skills");
             KVJungleClear.Add("jungleclearQ", new CheckBox("Use Q"));
             KVJungleClear.Add("jungleclearW", new CheckBox("Use W"));
@@ -114,6 +118,12 @@ namespace Godlike_Vel_Koz
             KVMisc.AddLabel("OH DARN");
             KVMisc.Add("ohdarnEnable", new CheckBox("Enable OH DARN sound on kill", false));
         }
+
+        // Hit Chances
+        public static int hitchanceQ { get { return KVMain["hitchanceQ"].Cast<ComboBox>().CurrentValue; } }
+        public static int hitchanceW { get { return KVMain["hitchanceW"].Cast<ComboBox>().CurrentValue; } }
+        public static int hitchanceE { get { return KVMain["hitchanceE"].Cast<ComboBox>().CurrentValue; } }
+        public static int hitchanceR { get { return KVMain["hitchanceR"].Cast<ComboBox>().CurrentValue; } }
 
         // Combo menu.
         public static bool comboQ { get { return KVCombo["comboQ"].Cast<CheckBox>().CurrentValue; } }

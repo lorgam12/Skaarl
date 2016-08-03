@@ -83,6 +83,16 @@ namespace Godlike_Vel_Koz
         public static void CastQ(Obj_AI_Base target)
         {
             if (target == null) return;
+
+            HitChance newHitchance = HitChance.High;
+            if (Manager.hitchanceQ == 0)
+                newHitchance = HitChance.High;
+            else if (Manager.hitchanceQ == 1)
+                newHitchance = HitChance.Medium;
+            else if (Manager.hitchanceQ == 2)
+                newHitchance = HitChance.Low;
+
+            Q.MinimumHitChance = newHitchance;
             if (Q.IsReady() && Q.Name == "VelkozQ")
                 Q.Cast(target);
         }
@@ -90,6 +100,17 @@ namespace Godlike_Vel_Koz
         public static void CastW(Obj_AI_Base target)
         {
             if (target == null) return;
+
+            HitChance newHitchance = HitChance.High;
+            if (Manager.hitchanceW == 0)
+                newHitchance = HitChance.High;
+            else if (Manager.hitchanceW == 1)
+                newHitchance = HitChance.Medium;
+            else if (Manager.hitchanceW == 2)
+                newHitchance = HitChance.Low;
+
+            W.MinimumHitChance = newHitchance;
+
             if (W.IsReady())
                 W.Cast(target);
         }
@@ -97,6 +118,17 @@ namespace Godlike_Vel_Koz
         public static void CastE(Obj_AI_Base target)
         {
             if (target == null) return;
+
+            HitChance newHitchance = HitChance.High;
+            if (Manager.hitchanceE == 0)
+                newHitchance = HitChance.High;
+            else if (Manager.hitchanceE == 1)
+                newHitchance = HitChance.Medium;
+            else if (Manager.hitchanceE == 2)
+                newHitchance = HitChance.Low;
+
+            E.MinimumHitChance = newHitchance;
+
             if (E.IsReady())
                 E.Cast(target);
         }
@@ -104,6 +136,16 @@ namespace Godlike_Vel_Koz
         public static void CastR(Obj_AI_Base target)
         {
             if (target == null) return;
+
+            HitChance newHitchance = HitChance.High;
+            if (Manager.hitchanceR == 0)
+                newHitchance = HitChance.High;
+            else if (Manager.hitchanceR == 1)
+                newHitchance = HitChance.Medium;
+            else if (Manager.hitchanceR == 2)
+                newHitchance = HitChance.Low;
+
+            R.MinimumHitChance = newHitchance;
             if (R.IsReady())
                 R.Cast(target);
         }
