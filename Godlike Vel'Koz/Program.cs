@@ -86,8 +86,6 @@ namespace Godlike_Vel_Koz
 
             if (Manager.killstealEnable)
                 Modes.KillStealMode();
-            if (Manager.followR && Champion.HasBuff("VelkozR"))
-                Modes.UltFollowMode();
             if (currentModes.Contains(Orbwalker.ActiveModes.Combo.ToString()))
                 Modes.ComboMode();
             if (currentModes.Contains(Orbwalker.ActiveModes.Harass.ToString()))

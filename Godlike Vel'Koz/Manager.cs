@@ -5,12 +5,13 @@ namespace Godlike_Vel_Koz
 {
     class Manager
     {
-        public static Menu KVMain, KVCombo, KVHarras, KVUltimate, KVLaneClear, KVJungleClear, KVKillSteal, KVDrawings, KVMisc;
+        public static Menu KVMain, KVCombo, KVHarras, KVLaneClear, KVJungleClear, KVKillSteal, KVDrawings, KVMisc;
 
         public static void Initialize()
         {
             // Main menu.
-            KVMain = MainMenu.AddMenu("Godlike Vel'Koz", "KVMain");
+            KVMain = MainMenu.AddMenu("Kled's Vel'Koz", "KVMain");
+            KVMain.AddGroupLabel("Kled's Vel'Koz");
             KVMain.AddLabel("If you see a bug don't forget to report it!");
             KVMain.AddSeparator(1);
             KVMain.AddGroupLabel("Hit Chances");
@@ -18,6 +19,7 @@ namespace Godlike_Vel_Koz
             KVMain.Add("hitchanceW", new ComboBox("W Hitchance", 0, "High", "Medium", "Low"));
             KVMain.Add("hitchanceE", new ComboBox("E Hitchance", 0, "High", "Medium", "Low"));
             KVMain.Add("hitchanceR", new ComboBox("R Hitchance", 0, "High", "Medium", "Low"));
+            KVMain.AddLabel("Press F5 after changing hitchance values.");
 
             // Combo menu.
             KVCombo = KVMain.AddSubMenu("Combo", "KVCombo");
@@ -46,13 +48,6 @@ namespace Godlike_Vel_Koz
             KVHarras.Add("harrasM", new Slider("Minimum mana to use skills (%)", 25));
             KVHarras.Add("harraslimitW", new CheckBox("Use W only if enemy is knocked.", false));
             KVHarras.Add("harraslimitE", new CheckBox("Use E only if enemy is slowed.", false));
-
-            // Ultimate menu.
-            KVUltimate = KVMain.AddSubMenu("Ultimate", "KVUltimate");
-            KVUltimate.AddGroupLabel("Ultimate");
-            KVUltimate.AddLabel("Ultimate follower follows the selected target.");
-            KVUltimate.Add("followR", new CheckBox("Enable Ultimate Follower"));
-            KVUltimate.Add("followMinions", new CheckBox("Follow minions if there is no enemy.", false));
 
             // Lane Clear menu.
             KVLaneClear = KVMain.AddSubMenu("Lane Clear", "KVLaneClear");
@@ -165,10 +160,6 @@ namespace Godlike_Vel_Koz
         public static bool killstealE { get { return KVKillSteal["killstealE"].Cast<CheckBox>().CurrentValue; } }
         public static bool killstealR { get { return KVKillSteal["killstealR"].Cast<CheckBox>().CurrentValue; } }
         public static int killsteallimitR { get { return KVKillSteal["killsteallimitR"].Cast<Slider>().CurrentValue; } }
-
-        // Ultimate menu.
-        public static bool followR { get { return KVUltimate["followR"].Cast<CheckBox>().CurrentValue; } }
-        public static bool followMinions { get { return KVUltimate["followMinions"].Cast<CheckBox>().CurrentValue; } }
 
         // Drawings menu.
         public static bool drawingsQW { get { return KVDrawings["drawingsQW"].Cast<CheckBox>().CurrentValue; } }

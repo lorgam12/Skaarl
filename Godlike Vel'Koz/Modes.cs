@@ -60,19 +60,6 @@ namespace Godlike_Vel_Koz
             }
         }
 
-        public static void UltFollowMode()
-        {
-            var target = Target.GetChampionTarget(Spells.R.Range, DamageType.Magical);
-            if (target != null)
-                Champion.Spellbook.UpdateChargeableSpell(SpellSlot.R, target.ServerPosition, false, false);
-            else if (Manager.followMinions)
-            {
-                var mtarget = Target.GetMinionTarget(Spells.R.Range, DamageType.Magical);
-                if (mtarget != null)
-                    Champion.Spellbook.UpdateChargeableSpell(SpellSlot.R, mtarget.ServerPosition, false, false);
-            }
-        }
-
         public static void JungleMode()
         {        
             if (Champion.ManaPercent < Manager.jungleclearM) return;
