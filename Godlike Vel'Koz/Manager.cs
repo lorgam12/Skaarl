@@ -10,8 +10,7 @@ namespace Godlike_Vel_Koz
         public static void Initialize()
         {
             // Main menu.
-            KVMain = MainMenu.AddMenu("Kled's Vel'Koz", "KVMain");
-            KVMain.AddGroupLabel("Kled's Vel'Koz");
+            KVMain = MainMenu.AddMenu("Godlike Vel'Koz", "KVMain");
             KVMain.AddLabel("If you see a bug don't forget to report it!");
             KVMain.AddSeparator(1);
             KVMain.AddGroupLabel("Hit Chances");
