@@ -57,7 +57,7 @@ namespace Godlike_Ashe
             if (KMenu.KAautoWM >= User.ManaPercent || !KSpells.W.IsReady() || User.IsRecalling() || (KMenu.KAautoWlimit && User.IsUnderEnemyturret())) return;
 
             Obj_AI_Base targetEnemy = TargetSelector.GetTarget(KSpells.W.Range, DamageType.Physical);
-            if (targetEnemy != null && targetEnemy.IsValidTarget() && !targetEnemy.IsInvulnerable)
+            if (targetEnemy != null && targetEnemy.HealthPercent > 0)
                 KSpells.CastW(targetEnemy);
         }
 
@@ -119,7 +119,7 @@ namespace Godlike_Ashe
         {
             if (KMenu.KAstealW && KSpells.W.IsReady())
             {
-                foreach (var X in EntityManager.Heroes.Enemies.Where(X => X.IsInRange(Player.Instance, KSpells.W.Range) && X.HealthPercent > 0 && !X.IsInvulnerable && X.IsTargetable && !X.IsZombie && X.Health < DamageLibrary.GetSpellDamage(Player.Instance, X, SpellSlot.W)))
+                foreach (var X in EntityManager.Heroes.Enemies.Where(X => X.IsInRange(Player.Instance, KSpells.W.Range) && !X.IsInvulnerable && X.IsTargetable && !X.IsZombie && X.Health < DamageLibrary.GetSpellDamage(Player.Instance, X, SpellSlot.W)))
                 {
                     if (KSpells.W.GetPrediction(X).HitChance >= HitChance.Medium)
                     {
@@ -129,7 +129,7 @@ namespace Godlike_Ashe
             }
             if (KMenu.KAstealR && KSpells.W.IsReady())
             {
-                foreach (var X in EntityManager.Heroes.Enemies.Where(X => X.IsInRange(Player.Instance, KMenu.KAstealRlimit) && X.HealthPercent > 0 && !X.IsInvulnerable && X.IsTargetable && !X.IsZombie && X.Health < DamageLibrary.GetSpellDamage(Player.Instance, X, SpellSlot.R)))
+                foreach (var X in EntityManager.Heroes.Enemies.Where(X => X.IsInRange(Player.Instance, KMenu.KAstealRlimit) && !X.IsInvulnerable && X.IsTargetable && !X.IsZombie && X.Health < DamageLibrary.GetSpellDamage(Player.Instance, X, SpellSlot.R)))
                 {
                     if (KSpells.R.GetPrediction(X).HitChance >= HitChance.High)
                     {
