@@ -83,7 +83,7 @@ namespace Godlike_Ashe
         }
         public static void CastW(Obj_AI_Base target)
         {
-            if (target == null || target.IsInvulnerable && !target.IsValidTarget()) return;
+            if (target == null || target.IsInvulnerable || !target.IsValidTarget() ||target.IsDead) return;
             W.MinimumHitChance = GetHitChance("W");
             if (W.IsReady())
                 W.Cast(target);
@@ -96,7 +96,7 @@ namespace Godlike_Ashe
         }
         public static void CastR(Obj_AI_Base target)
         {
-            if (target == null) return;
+            if (target == null || target.IsInvulnerable || !target.IsValidTarget() ||target.IsDead) return;
             W.MinimumHitChance = GetHitChance("R");
             if (R.IsReady())
                 R.Cast(target);
