@@ -54,7 +54,7 @@ namespace Godlike_Ashe
 
         public static void AutoW()
         {
-            if (KMenu.KAautoWM >= User.ManaPercent || !KSpells.W.IsReady() || User.IsRecalling() || (KMenu.KAautoWlimit && User.IsUnderEnemyturret())) return;
+            if (KMenu.KAautoWM >= User.ManaPercent || !KSpells.W.IsReady() || User.IsRecalling() || (KMenu.KAautoWlimit && User.IsUnderEnemyturret()) || (KMenu.KAautoWlimit1 && User.IsStealthed)) return;
 
             Obj_AI_Base targetEnemy = TargetSelector.GetTarget(KSpells.W.Range, DamageType.Physical);
             if (targetEnemy != null && targetEnemy.IsValidTarget() && !targetEnemy.IsInvulnerable)

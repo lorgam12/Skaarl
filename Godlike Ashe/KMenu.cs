@@ -30,6 +30,7 @@ namespace Godlike_Ashe
             Combo.AddGroupLabel("Additional Features");
             Combo.Add("KAautoWE", new CheckBox("Use W automatically"));
             Combo.Add("KAautoWlimit", new CheckBox("Disable 'Auto W' while under enemy turret"));
+            Combo.Add("KAautoWlimit1", new CheckBox("Disable 'Auto W' while stealth"));
             Combo.Add("KAautoWM", new Slider("Minimum mana for automatic W usage (%)", 75, 0, 100));
             Combo.AddSeparator(1);
             Combo.Add("KAcomboBOTRK", new CheckBox("Use BOTRK and Bilgewater Cutlass"));
@@ -101,6 +102,7 @@ namespace Godlike_Ashe
         public static int KAcomboQlimit { get { return Combo["KAcomboQlimit"].Cast<Slider>().CurrentValue; } }
         public static bool KAautoWE { get { return Combo["KAautoWE"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAautoWlimit { get { return Combo["KAautoWlimit"].Cast<CheckBox>().CurrentValue; } }
+        public static bool KAautoWlimit1 { get { return Combo["KAautoWlimit1"].Cast<CheckBox>().CurrentValue; } }
         public static int KAautoWM { get { return Combo["KAautoWM"].Cast<Slider>().CurrentValue; } }
         public static bool KAcomboBOTRK { get { return Combo["KAcomboBOTRK"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAcomboYOUMUU { get { return Combo["KAcomboYOUMUU"].Cast<CheckBox>().CurrentValue; } }
