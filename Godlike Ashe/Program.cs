@@ -24,6 +24,7 @@ namespace Godlike_Ashe
         {
             if (User.ChampionName != "Ashe") return;
 
+            Chat.Print("Godlike Ashe is loaded.");
             KMenu.Initialize();
             KSpells.Initialize();
 
