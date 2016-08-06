@@ -25,7 +25,7 @@ namespace Godlike_Ashe
             Combo.Add("KAcomboW", new CheckBox("Use W"));
             Combo.Add("KAcomboR", new CheckBox("Use R"));
             Combo.Add("KAcomboSR", new CheckBox("Enable Smart R"));
-            Combo.Add("KAcomboQlimit", new Slider("Minimum enemy (around Ashe) for Q", 2, 1, 6));
+            Combo.Add("KAcomboQlimit", new Slider("Minimum enemy (around Ashe) for Q", 1, 1, 6));
             Combo.AddSeparator(1);
             Combo.AddGroupLabel("Additional Features");
             Combo.Add("KAautoWE", new CheckBox("Use W automatically"));
