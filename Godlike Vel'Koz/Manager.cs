@@ -10,11 +10,11 @@ namespace Godlike_Vel_Koz
         public static void Initialize()
         {
             // Main menu.
-            KVMain = MainMenu.AddMenu("Kled's Vel'Koz", "KVMain");
-            KVMain.AddGroupLabel("Kled's Vel'Koz");
-            KVMain.AddLabel("If you see a bug don't forget to report it!");
+            KVMain = MainMenu.AddMenu("Godlike Vel'Koz", "KVMain");
+            KVMain.AddGroupLabel("Thank you for choosing Godlike Vel'Koz!");
+            KVMain.AddLabel("If you see a bug or have an idea, please post it on the forum thread!");
             KVMain.AddSeparator(1);
-            KVMain.AddGroupLabel("Hit Chances");
+            KVMain.AddGroupLabel("Hitchances");
             KVMain.Add("hitchanceQ", new ComboBox("Q Hitchance", 1, "High", "Medium", "Low"));
             KVMain.Add("hitchanceW", new ComboBox("W Hitchance", 0, "High", "Medium", "Low"));
             KVMain.Add("hitchanceE", new ComboBox("E Hitchance", 0, "High", "Medium", "Low"));
