@@ -57,7 +57,7 @@ namespace Godlike_Ashe
             if (KMenu.KAautoWM >= User.ManaPercent || !KSpells.W.IsReady() || User.IsRecalling() || (KMenu.KAautoWlimit && User.IsUnderEnemyturret())) return;
 
             Obj_AI_Base targetEnemy = TargetSelector.GetTarget(KSpells.W.Range, DamageType.Physical);
-            if (targetEnemy != null)
+            if (targetEnemy != null && targetEnemy.HealthPercent > 0)
                 KSpells.CastW(targetEnemy);
         }
 
