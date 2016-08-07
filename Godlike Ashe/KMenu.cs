@@ -87,6 +87,7 @@ namespace Godlike_Ashe
             //Misc.Add("KAmiscUseQ", new CheckBox("Use QSS"));
             Misc.AddSeparator(1);
             Misc.AddGroupLabel("Skin Changer");
+            Misc.Add("skinEnable", new CheckBox("Enable Skin Changer"));
             Misc.Add("skinID", new ComboBox("Current Skin", 8, "Default Ashe", "Freljord Ashe", "Sherwood Forest Ashe", "Woad Ashe", "Queen Ashe", "Amethyst Ashe", "Heartseeker Ashe", "Marauder Ashe", "PROJECT: Ashe"));
         }
 
@@ -134,6 +135,7 @@ namespace Godlike_Ashe
         // Misc Menu
         public static bool KAmiscDrawAA { get { return Misc["KAmiscDrawAA"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAmiscDrawW { get { return Misc["KAmiscDrawW"].Cast<CheckBox>().CurrentValue; } }
+        public static bool skinEnable { get { return Misc["skinEnable"].Cast<CheckBox>().CurrentValue; } }
         public static int skinID { get { return Misc["skinID"].Cast<ComboBox>().CurrentValue; } }
 
     }

@@ -29,17 +29,14 @@ namespace Godlike_Ashe
             KSpells.Initialize();
 
             Game.OnTick += Game_OnTick;
-            Game.OnUpdate += Game_OnUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
-        }
-
-        public static void Game_OnUpdate(EventArgs args)
-        {
-            User.SetSkinId(KMenu.skinID);
         }
 
         public static void Game_OnTick(EventArgs args)
         {
+            if(KMenu.skinEnable)
+                User.SetSkinId(KMenu.skinID);
+
             if (User.IsDead) return;
 
             string currentModes = Orbwalker.ActiveModesFlags.ToString();
