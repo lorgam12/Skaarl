@@ -36,17 +36,20 @@ namespace Godlike_Ashe
 
         public static void Game_OnTick(EventArgs args)
         {
-            if(KMenu.skinEnable)
-                User.SetSkinId(KMenu.skinID);
+            if(KMenu.skinEnable) User.SetSkinId(KMenu.skinID);
 
             if (User.IsDead) return;
 
-            string currentModes = Orbwalker.ActiveModesFlags.ToString();
-
+            // Other Modes
             if (KMenu.KAautoWE)
                 KModes.AutoW();
             if (KMenu.KAstealW || KMenu.KAstealR)
                 KModes.Steal();
+            if (KMenu.hawkEnable)
+                KModes.CastHowkshot();
+
+            // Orbwalker Modes
+            string currentModes = Orbwalker.ActiveModesFlags.ToString();
             if (currentModes.Contains(Orbwalker.ActiveModes.Combo.ToString()))
                 KModes.Combo();
             if (currentModes.Contains(Orbwalker.ActiveModes.Harass.ToString()))
@@ -57,8 +60,6 @@ namespace Godlike_Ashe
                 KModes.Jungle();
             if (currentModes.Contains(Orbwalker.ActiveModes.Flee.ToString()))
                 KModes.Flee();
-            if (KMenu.hawkEnable)
-                KModes.CastHowkshot();
         }
 
         public static void Drawing_OnDraw(EventArgs args)
