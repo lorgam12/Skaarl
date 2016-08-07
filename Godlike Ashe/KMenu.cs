@@ -16,7 +16,8 @@ namespace Godlike_Ashe
             Main.AddSeparator(1);
             Main.AddGroupLabel("Hitchances");
             Main.Add("hitchanceW", new ComboBox("W Hitchance", 1, "High", "Medium", "Low"));
-            Main.Add("hitchanceR", new ComboBox("R Hitchance", 0, "High", "Medium", "Low"));
+            Main.Add("hitchanceR", new ComboBox("R Hitchance", 1, "High", "Medium", "Low"));
+            Main.AddLabel("Medium for both is recommended.");
 
             // Combo Menu
             Combo = Main.AddSubMenu("Combo", "KACombo");
