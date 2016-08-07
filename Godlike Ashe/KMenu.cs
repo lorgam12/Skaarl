@@ -25,27 +25,23 @@ namespace Godlike_Ashe
             Combo.Add("KAcomboW", new CheckBox("Use W"));
             Combo.Add("KAcomboR", new CheckBox("Use R"));
             Combo.Add("KAcomboSR", new CheckBox("Enable Smart R"));
-            Combo.Add("KAcomboQlimit", new Slider("Minimum enemy (around Ashe) for Q", 1, 1, 6));
             Combo.AddSeparator(1);
             Combo.AddGroupLabel("Additional Features");
-            Combo.Add("KAautoWE", new CheckBox("Use W automatically"));
-            Combo.Add("KAautoWlimit", new CheckBox("Disable 'Auto W' while under enemy turret"));
-            //Combo.Add("KAautoWlimit1", new CheckBox("Disable 'Auto W' while stealth"));
-            Combo.Add("KAautoWM", new Slider("Minimum mana for automatic W usage (%)", 75, 0, 100));
+            Combo.Add("KAcomboQlimit", new Slider("Minimum enemy for Q", 1, 1, 5));
             Combo.AddSeparator(1);
             Combo.Add("KAcomboBOTRK", new CheckBox("Use BOTRK and Bilgewater Cutlass"));
             Combo.Add("KAcomboYOUMUU", new CheckBox("Use Youmuu's Ghostblade"));
-            Combo.Add("KAcomboYOUMUUlimit", new Slider("Minimum enemy (around Ashe) for using Youmuu", 2, 1, 6));
+            Combo.Add("KAcomboYOUMUUlimit", new Slider("Minimum enemy for Youmuu's Ghostblade", 2, 1, 5));
 
             // Harras Menu
             Harass = Main.AddSubMenu("Harras", "KAHarras");
             Harass.AddGroupLabel("Skills");
             Harass.Add("KAharassQ", new CheckBox("Use Q"));
             Harass.Add("KAharassW", new CheckBox("Use W"));
-            Harass.Add("KAharassQlimit", new Slider("Minimum enemy (around Ashe) for Q", 1, 1, 6));
             Harass.AddSeparator(1);
             Harass.AddGroupLabel("Additional Features");
-            Harass.Add("KAharassM", new Slider("Minimum mana for using skills (%)", 30, 0, 100));
+            Harass.Add("KAharassM", new Slider("Minimum mana for using skills (%)", 70, 0, 100));
+            Harass.Add("KAharassQlimit", new Slider("Minimum enemy for Q", 2, 1, 6));
 
             // Lane Clear Menu
             Lane = Main.AddSubMenu("Lane Clear", "KALane");
@@ -54,8 +50,8 @@ namespace Godlike_Ashe
             Lane.Add("KAlaneW", new CheckBox("Use W"));
             Lane.AddSeparator(1);
             Lane.AddGroupLabel("Additional Features");
-            Lane.Add("KAlaneM", new Slider("Minimum mana for using skills (%)", 50, 0, 100));
-            Lane.Add("KAlaneQlimit", new Slider("Minimum minion (around Ashe) for Q", 3, 1, 40));
+            Lane.Add("KAlaneM", new Slider("Minimum mana for using skills (%)", 70, 0, 100));
+            Lane.Add("KAlaneQlimit", new Slider("Minimum minion for Q", 4, 1, 40));
             Lane.Add("KAlaneWlimit", new Slider("Minimum minion for W", 3, 1, 40));
 
             // Jungle Clear Menu
@@ -65,7 +61,7 @@ namespace Godlike_Ashe
             Jungle.Add("KAjungleW", new CheckBox("Use W"));
             Jungle.AddSeparator(1);
             Jungle.AddGroupLabel("Additional Features");
-            Jungle.Add("KAjungleM", new Slider("Minimum mana for using skills (%)", 30, 0, 100));
+            Jungle.Add("KAjungleM", new Slider("Minimum mana for using skills (%)", 70, 0, 100));
 
             // Kill Steal Menu
             Steal = Main.AddSubMenu("Kill Steal", "KASteal");
@@ -79,6 +75,12 @@ namespace Godlike_Ashe
             Misc.AddGroupLabel("Drawings");
             Misc.Add("KAmiscDrawAA", new CheckBox("Draw AA"));
             Misc.Add("KAmiscDrawW", new CheckBox("Draw W"));
+            Misc.AddSeparator(1);
+            Misc.AddGroupLabel("Auto W Usage");
+            Misc.Add("KAautoWE", new CheckBox("Enable"));
+            Misc.Add("KAautoWlimit", new CheckBox("Disable while under enemy turret"));
+            //Misc.Add("KAautoWlimit1", new CheckBox("Disable 'Auto W' while stealth"));
+            Misc.Add("KAautoWM", new Slider("Minimum mana for automatic W usage (%)", 75, 0, 100));
             // Coming soon.
             //Misc.AddSeparator(1);
             //Misc.AddGroupLabel("Life Saver");
@@ -87,7 +89,7 @@ namespace Godlike_Ashe
             //Misc.Add("KAmiscUseQ", new CheckBox("Use QSS"));
             Misc.AddSeparator(1);
             Misc.AddGroupLabel("Skin Changer");
-            Misc.Add("skinEnable", new CheckBox("Enable Skin Changer"));
+            Misc.Add("skinEnable", new CheckBox("Enable"));
             Misc.Add("skinID", new ComboBox("Current Skin", 8, "Default Ashe", "Freljord Ashe", "Sherwood Forest Ashe", "Woad Ashe", "Queen Ashe", "Amethyst Ashe", "Heartseeker Ashe", "Marauder Ashe", "PROJECT: Ashe"));
         }
 
@@ -101,10 +103,6 @@ namespace Godlike_Ashe
         public static bool KAcomboR { get { return Combo["KAcomboR"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAcomboSR { get { return Combo["KAcomboSR"].Cast<CheckBox>().CurrentValue; } }
         public static int KAcomboQlimit { get { return Combo["KAcomboQlimit"].Cast<Slider>().CurrentValue; } }
-        public static bool KAautoWE { get { return Combo["KAautoWE"].Cast<CheckBox>().CurrentValue; } }
-        public static bool KAautoWlimit { get { return Combo["KAautoWlimit"].Cast<CheckBox>().CurrentValue; } }
-        //public static bool KAautoWlimit1 { get { return Combo["KAautoWlimit1"].Cast<CheckBox>().CurrentValue; } }
-        public static int KAautoWM { get { return Combo["KAautoWM"].Cast<Slider>().CurrentValue; } }
         public static bool KAcomboBOTRK { get { return Combo["KAcomboBOTRK"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAcomboYOUMUU { get { return Combo["KAcomboYOUMUU"].Cast<CheckBox>().CurrentValue; } }
         public static int KAcomboYOUMUUlimit { get { return Combo["KAcomboYOUMUUlimit"].Cast<Slider>().CurrentValue; } }
@@ -135,6 +133,10 @@ namespace Godlike_Ashe
         // Misc Menu
         public static bool KAmiscDrawAA { get { return Misc["KAmiscDrawAA"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAmiscDrawW { get { return Misc["KAmiscDrawW"].Cast<CheckBox>().CurrentValue; } }
+        public static bool KAautoWE { get { return Misc["KAautoWE"].Cast<CheckBox>().CurrentValue; } }
+        public static bool KAautoWlimit { get { return Misc["KAautoWlimit"].Cast<CheckBox>().CurrentValue; } }
+        //public static bool KAautoWlimit1 { get { return Misc["KAautoWlimit1"].Cast<CheckBox>().CurrentValue; } }
+        public static int KAautoWM { get { return Misc["KAautoWM"].Cast<Slider>().CurrentValue; } }
         public static bool skinEnable { get { return Misc["skinEnable"].Cast<CheckBox>().CurrentValue; } }
         public static int skinID { get { return Misc["skinID"].Cast<ComboBox>().CurrentValue; } }
 
