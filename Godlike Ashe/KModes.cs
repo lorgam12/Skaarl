@@ -4,6 +4,11 @@ using EloBuddy.SDK.Events;
 using System.Linq;
 using EloBuddy.SDK.Enumerations;
 using System;
+using EloBuddy.SDK.Menu;
+using EloBuddy.SDK.Menu.Values;
+using System.Collections.Generic;
+using SharpDX;
+
 namespace Godlike_Ashe
 {
     class KModes
@@ -137,6 +142,20 @@ namespace Godlike_Ashe
                         KSpells.R.Cast(KSpells.R.GetPrediction(X).CastPosition);
                     }
                 }
+            }
+        }
+
+        public static void CastHowkshot()
+        {
+            if (!KSpells.E.IsReady()) return;
+
+            if (KMenu.Misc["hawkDragon"].Cast<KeyBind>().CurrentValue)
+            {
+                KSpells.CastE(new Vector3(9865, 4415, 0));
+            }
+            if (KMenu.Misc["hawkBaron"].Cast<KeyBind>().CurrentValue)
+            {
+                KSpells.CastE(new Vector3(5005, 10470, 0));
             }
         }
     }

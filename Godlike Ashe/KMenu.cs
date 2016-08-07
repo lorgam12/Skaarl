@@ -92,6 +92,11 @@ namespace Godlike_Ashe
             Misc.AddGroupLabel("Skin Changer");
             Misc.Add("skinEnable", new CheckBox("Enable"));
             Misc.Add("skinID", new ComboBox("Current Skin", 8, "Default Ashe", "Freljord Ashe", "Sherwood Forest Ashe", "Woad Ashe", "Queen Ashe", "Amethyst Ashe", "Heartseeker Ashe", "Marauder Ashe", "PROJECT: Ashe"));
+            Misc.AddSeparator(1);
+            Misc.AddGroupLabel("Hawkshot (E)");
+            Misc.Add("hawkEnable", new CheckBox("Enable"));
+            Misc.Add("hawkDragon", new KeyBind("Cast Hawkshot (E) to Dragon", false, KeyBind.BindTypes.HoldActive, 'U'));
+            Misc.Add("hawkBaron", new KeyBind("Cast Hawkshot (E) to Baron", false, KeyBind.BindTypes.HoldActive, 'I'));
         }
 
         // Main Menu
@@ -140,6 +145,8 @@ namespace Godlike_Ashe
         public static int KAautoWM { get { return Misc["KAautoWM"].Cast<Slider>().CurrentValue; } }
         public static bool skinEnable { get { return Misc["skinEnable"].Cast<CheckBox>().CurrentValue; } }
         public static int skinID { get { return Misc["skinID"].Cast<ComboBox>().CurrentValue; } }
+        public static bool hawkEnable { get { return Misc["hawkEnable"].Cast<CheckBox>().CurrentValue; } }
+
 
     }
 }

@@ -53,6 +53,8 @@ namespace Godlike_Ashe
                 KModes.Lane();
             if (currentModes.Contains(Orbwalker.ActiveModes.JungleClear.ToString()))
                 KModes.Jungle();
+            if (KMenu.hawkEnable)
+                KModes.CastHowkshot();
         }
 
         public static void Drawing_OnDraw(EventArgs args)

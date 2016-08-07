@@ -88,7 +88,7 @@ namespace Godlike_Ashe
             if (W.IsReady())
                 W.Cast(target);
         }
-        public static void CastE(Obj_AI_Base target)
+        public static void CastE(SharpDX.Vector3 target)
         {
             if (target == null) return;
             if (E.IsReady())
