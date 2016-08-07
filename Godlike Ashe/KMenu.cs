@@ -5,7 +5,7 @@ namespace Godlike_Ashe
 {
     class KMenu
     {
-        public static Menu Main, Combo, Harass, Lane, Jungle, Steal, Misc;
+        public static Menu Main, Combo, Harass, Lane, Jungle, Steal, Misc, Settings;
 
         public static void Initialize()
         {
@@ -70,33 +70,40 @@ namespace Godlike_Ashe
             Steal.Add("KAstealW", new CheckBox("Steal with W"));
             Steal.Add("KAstealR", new CheckBox("Steal with R"));
             Steal.Add("KAstealRlimit", new Slider("Maximumu range for kill steal with R", 1500, 500, 3000));
-
+            
             // Misc Menu
             Misc = Main.AddSubMenu("Misc", "KAMisc");
-            Misc.AddGroupLabel("Drawings");
-            Misc.Add("KAmiscDrawAA", new CheckBox("Draw AA"));
-            Misc.Add("KAmiscDrawW", new CheckBox("Draw W"));
+            Misc.AddGroupLabel("Flee");
+            Misc.Add("KAfleeW", new CheckBox("Use W"));
+            Misc.AddSeparator(1);
+            Misc.AddGroupLabel("Life Saver");
+            Misc.Add("KAInterrupt", new CheckBox("Interrupt important spells with R"));
+            Misc.Add("KAGap", new CheckBox("Anti Gapclose with W"));
+            //Misc.Add("KAUseHEA", new CheckBox("Use Heal"));
+            //Misc.Add("KAUseBAR", new CheckBox("Use Barrier"));
+            //Misc.Add("KAUseQSS", new CheckBox("Use QSS"));
             Misc.AddSeparator(1);
             Misc.AddGroupLabel("Auto W Usage");
             Misc.Add("KAautoWE", new CheckBox("Enable"));
             Misc.Add("KAautoWlimit", new CheckBox("Disable while under enemy turret"));
             //Misc.Add("KAautoWlimit1", new CheckBox("Disable 'Auto W' while stealth"));
             Misc.Add("KAautoWM", new Slider("Minimum mana for automatic W usage (%)", 75, 0, 100));
-            // Coming soon.
-            //Misc.AddSeparator(1);
-            //Misc.AddGroupLabel("Life Saver");
-            //Misc.Add("KAmiscUseH", new CheckBox("Use Heal"));
-            //Misc.Add("KAmiscUseB", new CheckBox("Use Barrier"));
-            //Misc.Add("KAmiscUseQ", new CheckBox("Use QSS"));
-            Misc.AddSeparator(1);
-            Misc.AddGroupLabel("Skin Changer");
-            Misc.Add("skinEnable", new CheckBox("Enable"));
-            Misc.Add("skinID", new ComboBox("Current Skin", 8, "Default Ashe", "Freljord Ashe", "Sherwood Forest Ashe", "Woad Ashe", "Queen Ashe", "Amethyst Ashe", "Heartseeker Ashe", "Marauder Ashe", "PROJECT: Ashe"));
             Misc.AddSeparator(1);
             Misc.AddGroupLabel("Hawkshot (E)");
-            Misc.Add("hawkEnable", new CheckBox("Enable"));
             Misc.Add("hawkDragon", new KeyBind("Cast Hawkshot (E) to Dragon", false, KeyBind.BindTypes.HoldActive, 'U'));
             Misc.Add("hawkBaron", new KeyBind("Cast Hawkshot (E) to Baron", false, KeyBind.BindTypes.HoldActive, 'I'));
+            Misc.Add("hawkEnable", new CheckBox("Enable"));
+
+
+            // Settings Menu
+            Settings = Main.AddSubMenu("Settings", "KASettings");
+            Settings.AddGroupLabel("Drawings");
+            Settings.Add("KADrawAA", new CheckBox("Draw AA"));
+            Settings.Add("KADrawW", new CheckBox("Draw W"));
+            Settings.AddSeparator(1);
+            Settings.AddGroupLabel("Skin Changer");
+            Settings.Add("skinEnable", new CheckBox("Enable"));
+            Settings.Add("skinID", new ComboBox("Current Skin", 8, "Default Ashe", "Freljord Ashe", "Sherwood Forest Ashe", "Woad Ashe", "Queen Ashe", "Amethyst Ashe", "Heartseeker Ashe", "Marauder Ashe", "PROJECT: Ashe"));
         }
 
         // Main Menu
@@ -137,16 +144,20 @@ namespace Godlike_Ashe
         public static int KAstealRlimit { get { return Steal["KAstealRlimit"].Cast<Slider>().CurrentValue; } }
 
         // Misc Menu
-        public static bool KAmiscDrawAA { get { return Misc["KAmiscDrawAA"].Cast<CheckBox>().CurrentValue; } }
-        public static bool KAmiscDrawW { get { return Misc["KAmiscDrawW"].Cast<CheckBox>().CurrentValue; } }
+        public static bool KAfleeW { get { return Misc["KAfleeW"].Cast<CheckBox>().CurrentValue; } }
+        public static bool KAInterrupt{ get { return Misc["KAInterrupt"].Cast<CheckBox>().CurrentValue; } }
+        public static bool KAGap { get { return Misc["KAGap"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAautoWE { get { return Misc["KAautoWE"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAautoWlimit { get { return Misc["KAautoWlimit"].Cast<CheckBox>().CurrentValue; } }
         //public static bool KAautoWlimit1 { get { return Misc["KAautoWlimit1"].Cast<CheckBox>().CurrentValue; } }
         public static int KAautoWM { get { return Misc["KAautoWM"].Cast<Slider>().CurrentValue; } }
-        public static bool skinEnable { get { return Misc["skinEnable"].Cast<CheckBox>().CurrentValue; } }
-        public static int skinID { get { return Misc["skinID"].Cast<ComboBox>().CurrentValue; } }
         public static bool hawkEnable { get { return Misc["hawkEnable"].Cast<CheckBox>().CurrentValue; } }
 
+        // Settings Menu
+        public static bool KADrawAA { get { return Settings["KADrawAA"].Cast<CheckBox>().CurrentValue; } }
+        public static bool KADrawW { get { return Settings["KADrawW"].Cast<CheckBox>().CurrentValue; } }
+        public static bool skinEnable { get { return Settings["skinEnable"].Cast<CheckBox>().CurrentValue; } }
+        public static int skinID { get { return Settings["skinID"].Cast<ComboBox>().CurrentValue; } }
 
     }
 }

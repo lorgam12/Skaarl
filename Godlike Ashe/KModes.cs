@@ -62,11 +62,20 @@ namespace Godlike_Ashe
         {
             if (KMenu.KAautoWM >= User.ManaPercent || !KSpells.W.IsReady() || User.IsRecalling() || (KMenu.KAautoWlimit && User.IsUnderEnemyturret())) return;
 
-            Obj_AI_Base targetEnemy = TargetSelector.GetTarget(KSpells.W.Range, DamageType.Physical);
+            Obj_AI_Base targetEnemy = TargetSelector.GetTarget(KSpells.W.Range-30, DamageType.Physical);
             if (targetEnemy != null && targetEnemy.IsValidTarget() && !targetEnemy.IsInvulnerable)
                 KSpells.CastW(targetEnemy);
         }
 
+        public static void Flee()
+        {
+            if (!KSpells.W.IsReady() || !KMenu.KAfleeW) return;
+
+            Obj_AI_Base targetEnemy = TargetSelector.GetTarget(KSpells.W.Range - 50, DamageType.Physical);
+            if (targetEnemy != null && targetEnemy.IsValidTarget() && !targetEnemy.IsInvulnerable)
+                KSpells.CastW(targetEnemy);
+
+        }
         public static void Harass()
         {
             if (KMenu.KAharassM >= User.ManaPercent) return;

@@ -30,6 +30,8 @@ namespace Godlike_Ashe
 
             Game.OnTick += Game_OnTick;
             Drawing.OnDraw += Drawing_OnDraw;
+            Interrupter.OnInterruptableSpell += Angel.Interrupt;
+            Gapcloser.OnGapcloser += Angel.Gap;
         }
 
         public static void Game_OnTick(EventArgs args)
@@ -53,6 +55,8 @@ namespace Godlike_Ashe
                 KModes.Lane();
             if (currentModes.Contains(Orbwalker.ActiveModes.JungleClear.ToString()))
                 KModes.Jungle();
+            if (currentModes.Contains(Orbwalker.ActiveModes.Flee.ToString()))
+                KModes.Flee();
             if (KMenu.hawkEnable)
                 KModes.CastHowkshot();
         }
@@ -63,9 +67,9 @@ namespace Godlike_Ashe
             if (User.IsDead) return;
 
 
-            if (KMenu.KAmiscDrawAA && KSpells.W.IsLearned)
+            if (KMenu.KADrawAA && KSpells.W.IsLearned)
                 Drawing.DrawCircle(User.Position, User.GetAutoAttackRange(), Color.FromArgb(0, 230, 118));
-            if (KMenu.KAmiscDrawW && KSpells.W.IsLearned)
+            if (KMenu.KADrawW && KSpells.W.IsLearned)
                 Drawing.DrawCircle(User.Position, KSpells.W.Range, Color.FromArgb(33, 150, 243));
         }
     }
