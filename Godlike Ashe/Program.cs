@@ -66,7 +66,7 @@ namespace Godlike_Ashe
             if (User.IsDead) return;
 
 
-            if (KMenu.KADrawAA && KSpells.W.IsLearned)
+            if (KMenu.KADrawAA)
                 Drawing.DrawCircle(User.Position, User.GetAutoAttackRange(), Color.FromArgb(0, 230, 118));
             if (KMenu.KADrawW && KSpells.W.IsLearned)
                 Drawing.DrawCircle(User.Position, KSpells.W.Range, Color.FromArgb(33, 150, 243));
