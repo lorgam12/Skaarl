@@ -2,7 +2,6 @@
 using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Events;
-//using Color = System.Drawing.Color;
 using System.Linq;
 using System.Media;
 using EloBuddy.SDK.Rendering;
@@ -24,7 +23,6 @@ namespace Godlike_Ashe
         {
             if (User.ChampionName != "Ashe") return;
 
-            Chat.Print("Godlike Ashe is loaded.");
             KMenu.Initialize();
             KSpells.Initialize();
 

@@ -34,8 +34,8 @@ namespace Godlike_Ashe
             Combo.Add("KAcomboYOUMUU", new CheckBox("Use Youmuu's Ghostblade"));
             Combo.Add("KAcomboYOUMUUlimit", new Slider("Minimum enemy for Youmuu's Ghostblade", 2, 1, 5));
 
-            // Harras Menu
-            Harass = Main.AddSubMenu("Harras", "KAHarras");
+            // Harass Menu
+            Harass = Main.AddSubMenu("Harras", "KAHarass");
             Harass.AddGroupLabel("Skills");
             Harass.Add("KAharassQ", new CheckBox("Use Q"));
             Harass.Add("KAharassW", new CheckBox("Use W"));
@@ -120,7 +120,7 @@ namespace Godlike_Ashe
         public static bool KAcomboYOUMUU { get { return Combo["KAcomboYOUMUU"].Cast<CheckBox>().CurrentValue; } }
         public static int KAcomboYOUMUUlimit { get { return Combo["KAcomboYOUMUUlimit"].Cast<Slider>().CurrentValue; } }
 
-        // Harras Menu
+        // Harass Menu
         public static bool KAharassQ { get { return Harass["KAharassQ"].Cast<CheckBox>().CurrentValue; } }
         public static bool KAharassW { get { return Harass["KAharassW"].Cast<CheckBox>().CurrentValue; } }
         public static int KAharassM { get { return Harass["KAharassM"].Cast<Slider>().CurrentValue; } }
