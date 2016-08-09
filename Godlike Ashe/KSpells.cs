@@ -97,7 +97,7 @@ namespace Godlike_Ashe
         public static void CastR(Obj_AI_Base target)
         {
             if (target == null || target.IsInvulnerable || !target.IsValidTarget() ||target.IsDead) return;
-            W.MinimumHitChance = GetHitChance("R");
+            R.MinimumHitChance = GetHitChance("R");
             if (R.IsReady())
                 R.Cast(target);
         }
