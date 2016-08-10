@@ -13,7 +13,7 @@ using EloBuddy.SDK.Menu.Values;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Drawing;
 namespace Godlike_Draven
 {
     class Program
@@ -70,22 +70,19 @@ namespace Godlike_Draven
 
         public static void Draw(EventArgs args)
         {
-            if (Game.Time < 15) return;
-            if (User.IsDead) return;
+            if (Game.Time < 15 || User.IsDead) return;
 
             if (KMenu.KDDrawAA)
-                Drawing.DrawCircle(User.Position, User.GetAutoAttackRange(), Color.FromArgb(0, 230, 118));
+                Circle.Draw(SharpDX.Color.GreenYellow, User.GetAutoAttackRange(), User.Position);
             if (KMenu.KDDrawE && KSpells.E.IsLearned)
-                Drawing.DrawCircle(User.Position, KSpells.E.Range, Color.FromArgb(33, 150, 243));
+                Circle.Draw(KSpells.E.IsReady() ? SharpDX.Color.GreenYellow : SharpDX.Color.Firebrick, KSpells.E.Range, User.Position);
             if (KMenu.KDDrawAxeRange)
-            {
-                Drawing.DrawCircle(Game.CursorPos, KMenu.axeRange, Color.FromArgb(33, 150, 243));
-            }
+                Circle.Draw(SharpDX.Color.Aquamarine, KMenu.axeRange, Game.CursorPos);
             if (KMenu.KDDrawAxe)
             {
                 foreach (var Axe in ObjectManager.Get<GameObject>().Where(x => x.Name.Equals("Draven_Base_Q_reticle_self.troy") && !x.IsDead))
                 {
-                    Drawing.DrawCircle(Axe.Position, 140, Color.Green);
+                    Circle.Draw(Axe.IsInRange(Game.CursorPos, KMenu.axeRange) || Axe.Distance(User.Position) < 100 ? SharpDX.Color.GreenYellow : SharpDX.Color.Firebrick, 140, Axe.Position);
                 }
             }
         }
